@@ -1,4 +1,3 @@
-#!/bin/sh
 windows() {
 	sudo grub-reboot 2;
 	reboot
@@ -25,5 +24,7 @@ projector(){
     echo "invalid input: $1"
   fi
 }
+
+alias update="ansible-playbook -i ~/control/hosts ~/control/update.yml -K"
 
 

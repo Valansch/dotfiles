@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 alias ka="killall" \
   exut=exit \
@@ -10,7 +10,7 @@ alias ka="killall" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi" \
-
+  
 if pacman -V &> /dev/null; then
 	alias	autoremove="sudo pacman -Rcns $(pacman -Qdtq)" 
 fi
