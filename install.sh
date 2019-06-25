@@ -1,9 +1,26 @@
-#!/bin/zsh
+#!/bin/sh
 
-mkdir -p backup
-ls -al home | grep '^-' | cut -c 42- | xargs -I{} cp ~/{} backup/{}.bak
+fail=0
 
+for path in home/*; do
+    [ -e "$path" ] || continue
+		filename=`basename $path`
 
-ls -al home | grep '^-' | cut -c 42- | xargs -I{} cp home/{} ~/{}
+		if [ -L "$HOME/.$filename" ]; then
+      echo "Symlink for $HOME/.$filename found"
+			continue
+    else
+			echo "Symlink for $HOME/.$filename not found"
 
-source ~/.zshrc
+			if [ -e "$HOME/.$filename" ]; then
+				echo "Error: File found in place of symlink: $HOME/.$filename"
+				fail=1
+				continue
+			fi
+
+			echo "Creating symlink for $HOME/.$filename"
+      ln -s "$HOME/.dotfiles/home/$filename" "$HOME/.$filename" 
+    fi
+done
+
+exit $fail
