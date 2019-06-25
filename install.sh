@@ -2,9 +2,9 @@
 
 fail=0
 
-for path in home/*; do
+for path in "$HOME"/.dotfiles/home/*; do
     [ -e "$path" ] || continue
-		filename=`basename $path`
+    filename=$(basename "$path")
 
 		if [ -L "$HOME/.$filename" ]; then
       echo "Symlink for $HOME/.$filename found"
@@ -19,7 +19,7 @@ for path in home/*; do
 			fi
 
 			echo "Creating symlink for $HOME/.$filename"
-      ln -s "$HOME/.dotfiles/home/$filename" "$HOME/.$filename" 
+      ln -s "$HOME/.dotfiles/home/$filename" "$HOME/.$filename"
     fi
 done
 
