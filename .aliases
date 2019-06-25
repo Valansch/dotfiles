@@ -1,0 +1,14 @@
+#!/bin/sh
+
+alias ka="killall" \
+  exut=exit \
+	mkd="mkdir -pv" \
+	mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
+	p="sudo pacman" \
+	sdn="sudo shutdown -h now" \
+	ls="ls -hN --color=auto --group-directories-first" \
+	grep="grep --color=auto" \
+	diff="diff --color=auto" \
+	ccat="highlight --out-format=ansi" \
+	autoremove="sudo pacman -Rcns $(pacman -Qdtq)" \
+

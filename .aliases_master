@@ -1,0 +1,29 @@
+#!/bin/sh
+windows() {
+	sudo grub-reboot 2;
+	reboot
+}
+
+aptf(){
+if [[ "$1" == "install" ]]; then
+   shift
+   pacman -S "$@"
+else
+  echo "you suck"
+  exit
+fi
+}
+
+projector(){
+  if [[ "$1" == "on" ]]; then
+    ~/.display/configure --projector on
+  elif [[ "$1" == "off" ]]; then
+    ~/.display/configure --projector off
+  elif [[ "$1" == "clone" ]]; then
+    ~/.display/configure --projector clone
+  else
+    echo "invalid input: $1"
+  fi
+}
+
+
