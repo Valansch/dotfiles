@@ -1,8 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-source .dotfiles/aliases
-source .dotfiles/aliases_master
+source ~/.dotfiles/aliases
+[ "$hostname" = "majar" ] && source ~/.dotfiles/aliases_master
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/maik/.oh-my-zsh"
