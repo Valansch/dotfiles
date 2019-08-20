@@ -44,3 +44,15 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+
+export NVM_DIR="$HOME/.nvm"
+nvm(){
+    \. $NVM_DIR/nvm.sh
+    nvm
+}
+
+
+
+
+
+
